@@ -29,7 +29,7 @@ export default function Sidenav() {
                 }
               }}>
                 <li>
-                <AppsOutlinedIcon /><span className='menu-item'>Explore</span>
+                <AppsOutlinedIcon /><span className='menu-item'>Stock</span>
                 </li>
                 </NavLink>
                 

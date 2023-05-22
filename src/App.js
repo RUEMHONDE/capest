@@ -15,25 +15,26 @@ function App() {
         }
       }, [])
   return (
-    <div>
+    <>
       <BrowserRouter>
-      <Routes>
-      <Route path='/signup' element={<Signup/>}></Route>
+    
       {isLoggedin && ( 
-      
+      <Routes>
       <Route path="/" element={<Landing />}>
       <Route path="/foodlist" element={<FoodList/>}></Route>
       <Route path="/stock" element={<Stock/>}></Route>
-     
       </Route>
-       
+       <Routes/>
       
       )}
-      {!isLoggedin && <Login/>}
-      
+      {!isLoggedin && (
+      <Routes>
+        <Route path='/' element={<Login/>}/>
+        <Route path='/signup' element={<Signup/>}/>
       </Routes>
+      
       </BrowserRouter>
-    </div>
+      </>
   );
 }
 
