@@ -5,6 +5,15 @@
     justify-content: space-between;
 }
 .add-item{
+    background-color:greenyellow;
+    border: none;
+    height: 35px;
+    border-radius: 5px;
+    color: #efefef;
+    margin-top: 15px;
+    cursor: pointer;
+}
+.remove-item{
     background-color:brown;
     border: none;
     height: 35px;
@@ -12,6 +21,7 @@
     color: #efefef;
     margin-top: 15px;
     cursor: pointer;
+    margin-left: 5px;
 }
 .pizza{
     display: flex;

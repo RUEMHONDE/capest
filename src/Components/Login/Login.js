@@ -5,6 +5,7 @@ import { useState } from 'react';
 import axios from "axios";
 import {useNavigate} from 'react-router-dom';
 import Signup from '../Signup/Signup';
+import RestaurantSignup from '../RestaurantSignup/RestaurantSignup';
 export default function Login() {
     const [formData, setformData] = useState({});
     const handleChange = (e)=>{
@@ -17,6 +18,9 @@ export default function Login() {
   const openSignup = () =>{
     navigate('/Signup');
   };
+  const restSignup = () =>{
+    navigate('/RestaurantSignup');
+  }
     const signin = async ()=>{
       // console.log(formData);
       const resp = await axios.post("http://localhost:8080/login", formData);
@@ -38,7 +42,7 @@ export default function Login() {
       <div className='login-details'>
         {/* <img src={instapic}/> */}
         <div className='input-container'>
-          <input type='text' placeholder='Phone number, username or email'
+          <input type='text' placeholder='username'
           name='username'
           onChange={handleChange}
           ></input>
@@ -59,7 +63,7 @@ export default function Login() {
       <div className='action-signup'>
         <p>Dont have an account? 
           <span style={{color:"dodgerblue", fontWeight:"bold"}}>
-            <button className='signup'>Signup</button></span></p>
+            <button className='signup' onClick={restSignup}>Signup</button></span></p>
       </div>
       <div className='action-app'>
         {/* <p>Get the App.</p> */}

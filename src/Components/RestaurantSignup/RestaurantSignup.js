@@ -1,10 +1,11 @@
-import React from 'react';
-import "./signup.css";
-export default function Signup() {
+import React from 'react'
+
+export default function RestaurantSignup() {
   return (
-    <div className="form">
+    
+        <div className="form">
           <div className="form-body">
-            <h2>Customer Sign up</h2>
+            <h2>Restaurant Sign up</h2>
               <div className="username">
                   <label className="form__label" for="firstName">First Name </label>
                   <input className="form__input" type="text" id="firstName" placeholder="First Name"/>
@@ -29,6 +30,7 @@ export default function Signup() {
           <div class="footer">
               <button type="submit" class="btn">Register</button>
           </div>
-      </div>      
+      
+    </div>
   )
 }

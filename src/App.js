@@ -13,7 +13,7 @@ function App() {
         if(localStorage.getItem("token") !=null) {
           setLoggedin(true);
         }
-      }, [])
+      }, []);
   return (
     <>
       <BrowserRouter>
@@ -24,18 +24,19 @@ function App() {
       <Route path="/foodlist" element={<FoodList/>}></Route>
       <Route path="/stock" element={<Stock/>}></Route>
       </Route>
-       <Routes/>
+       </Routes>
       
       )}
       {!isLoggedin && (
       <Routes>
-        <Route path='/' element={<Login/>}/>
-        <Route path='/signup' element={<Signup/>}/>
+        <Route path='/' element={<Login/>}></Route>
+        <Route path='/signup' element={<Signup/>}></Route>
       </Routes>
-      
+      )}
       </BrowserRouter>
       </>
   );
 }
+
 
 export default App;

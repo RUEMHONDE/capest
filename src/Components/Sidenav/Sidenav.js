@@ -10,7 +10,7 @@ export default function Sidenav() {
         <div className='title'></div>
         
         <div className='food-links'>
-            <ul className='food-ul'>
+            {/* <ul className='food-ul'>
               <NavLink className="navlink" to="/foodlist"  style={({ isActive, isPending })=>{
                 return {
                   
@@ -33,10 +33,8 @@ export default function Sidenav() {
                 </li>
                 </NavLink>
                 
-                
-              
-                
-            </ul>
+                               
+            </ul> */}
         </div>
     </div>
   )
