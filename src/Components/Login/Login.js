@@ -8,18 +8,34 @@ import Signup from '../Signup/Signup';
 import RestaurantSignup from '../RestaurantSignup/RestaurantSignup';
 export default function Login() {
     const [formData, setformData] = useState({});
+    const [signData, setsignData] = useState({});
+    const [restData, setrestData] = useState({});
     const handleChange = (e)=>{
       setformData((prev)=>({
         ...prev, [e.target.name]:e.target.value,
       }))
     };
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   
-  const openSignup = () =>{
-    navigate('/Signup');
+  const openSignup = async () =>{
+    const resp = await axios.post("http://localhost:8080/signup", signData);
+  
+    if(resp.data.status==200)
+    {
+      console.log("signedin successfully");
+      localStorage.setItem("token", resp.data.token);
+    }
+        // navigate('/Signup');
   };
-  const restSignup = () =>{
-    navigate('/RestaurantSignup');
+  const restSignup = async () =>{
+    const resp = await axios.post("http://localhost:8080/restsignup", restData);
+  
+    if(resp.data.status==200)
+    {
+      console.log("loggedin successfully");
+      localStorage.setItem("token", resp.data.token);
+    }
+    // navigate('/RestaurantSignup');
   }
     const signin = async ()=>{
       // console.log(formData);

@@ -9,7 +9,7 @@ export default function Landing() {
     <div>
       <div className='landing-container'>
             <div className='sidenav'>
-                <Sidenav/>
+                {/* <Sidenav/> */}
             </div>
             <div className='content-container'>
                 <Header/>

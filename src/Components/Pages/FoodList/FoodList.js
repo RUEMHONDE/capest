@@ -55,11 +55,13 @@ export default function FoodList() {
  
 // })
   return (
+    <>
+    <div className="items">Number of items={itemCount}</div>
     <div className='food'>
         
         {/* <Badge
          color="secondary" badgeContent> */}
-        Number of items={itemCount}
+        
            {/* <ShoppingCartIcon /> */}
           {' '}items
         {/* </Badge>  */}
@@ -148,6 +150,7 @@ export default function FoodList() {
         </div>   
         </div>
     </div>
+    </>
   )
 }
 

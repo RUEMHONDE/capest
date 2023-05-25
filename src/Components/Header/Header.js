@@ -27,29 +27,10 @@ export default function Header() {
               }}>
                 <li>
                 {/* <AppsOutlinedIcon /> */}
-                <span className='menu-item'>Stock</span>
+                <span className='menu-item' >Stock</span>
                 </li>
                 </NavLink>
-                {/* <NavLink className="navlink" to="/login"  style={({ isActive, isPending })=>{
-                return {
-                  
-                  color: isActive ? "red" : "black",
-                }
-              }}>
-                <li>
-                <AppsOutlinedIcon /><span className='menu-item'>Sign in</span>
-                </li>
-                </NavLink>
-                <NavLink className="navlink" to="/signup"  style={({ isActive, isPending })=>{
-                return {
-                  
-                  color: isActive ? "red" : "black",
-                }
-              }}>
-                <li>
-                <AppsOutlinedIcon /><span className='menu-item'>Sign Up</span>
-                </li>
-                </NavLink> */}
+                
         </div>
       </header>
     </div>
