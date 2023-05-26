@@ -66,6 +66,18 @@ export default function FoodList() {
           {' '}items
         {/* </Badge>  */}
         <br></br>
+
+{proucts.map((elem)=>{
+  
+  return ( <div className='burgers' >
+        <div><img src={elem.link} style={{width:"200px", height:"150px"}}></img>
+        <h2>{elem.product}</h2>
+        <h2>Price: {elem.price}</h2>
+        <button className='add-item' onClick={Additem}>Add To Cart</button>
+        <button className='remove-item' onClick={removeitem}>Remove</button>
+        </div> 
+</div>)
+})}
         <div className='burgers' >
         <div><img src={regular} style={{width:"200px", height:"150px"}}></img>
         <h2>Regular Beef</h2>
