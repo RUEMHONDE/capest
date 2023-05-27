@@ -1,9 +1,10 @@
-.burgers{
+/* .burgers{
     display: flex;
+    flex-direction: row;
     margin-left: 20px;
     overflow: scroll;
     justify-content: space-between;
-}
+} */
 .add-item{
     background-color:greenyellow;
     border: none;
@@ -23,9 +24,20 @@
     cursor: pointer;
     margin-left: 5px;
 }
+.items{
+    margin-top: 50px;
+}
 .pizza{
     display: flex;
     margin-left: 20px;
     overflow: scroll;
     justify-content: space-between;
+}
+
+.food{
+    display: flex;
+    overflow: scroll;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-top: 60px;
 }
