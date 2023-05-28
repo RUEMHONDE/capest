@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './foodlist.css';
 import regular from '../../../../src/regular.jpg';
 import doublecheese from '../../../../src/doublecheese.jpg';
@@ -15,17 +15,37 @@ import homemadebbq from '../../../pizza/homemadebbq.jpg';
 import Badge from "@material-ui/core/Badge";
 // import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 export default function FoodList() {
-  
+  const [result, setResult] = useState();
+  const [cartitems, setCartitems] = useState(null);
   const [itemCount, setItemCount] = React.useState(1);
-  const Additem=() => {
+  let Sum = 0;
+  let items = [];
+useEffect(()=>{
+  if(cartitems!==null){
+   cartitems.map((elem)=>{
+     Sum = Sum + elem.price;
+     return Sum;
+    });
+    setResult(Sum);
+}}, [cartitems]);
+
+  const Additem=(item) => {
+    console.log("initially"+ items)
     setItemCount(itemCount + 1);
+    items.push(item);
+    console.log(items)
+    setCartitems(items);
+     
   };
+
+
+
   const removeitem=() => {
     setItemCount(Math.max(itemCount - 1, 0));
   };
   const products = [
     {
-      link:"https://www.google.com/search?q=burger+images&oq=burger+im&aqs=chrome.1.69i57j0i512l3j0i10i512j0i512l2j69i61.32053j0j7&sourceid=chrome&ie=UTF-8#imgrc=VkZKFXil8ZqUbM",
+      link:"https://thumbs.dreamstime.com/b/big-burger-isolated-white-43062448.jpg",
       product:"single cheese",
       price: 35
   },
@@ -37,7 +57,7 @@ export default function FoodList() {
 {
   link:"https://www.shutterstock.com/image-photo/delicious-grilled-burgers-260nw-1146199442.jpg",
   product:"burger& chips",
-  price:"42"
+  price: 42
 },
 {
   link:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnVyZ2VyfGVufDB8fDB8fHww&w=1000&q=80",
@@ -58,67 +78,24 @@ export default function FoodList() {
 //     price:
 //   },
 // ]
-// let temp = [];
-products.map((elem)=>{
-  return sum = sum + elem.price
-});
+// let temp = 
+
   return (
     <>
-    <div className="items">Number of items={itemCount}</div>
+   
     <div className='food'>
-        
-        {/* <Badge
-         color="secondary" badgeContent> */}
-        
-           {/* <ShoppingCartIcon /> */}
-          {/* {' '}items */}
-        {/* </Badge>  */}
-        <br></br>
-        {/* <div className='burgers' >
-        <div><img src={regular} style={{width:"200px", height:"150px"}}></img>
-        <h2>Regular Beef</h2>
-        <h2>Price: R25</h2>
-        <button className='add-item' onClick={Additem}>Add To Cart</button>
-        <button className='remove-item' onClick={removeitem}>Remove</button>
-        </div>  
-        <div><img src={doublecheese} style={{width:"200px", height:"150px"}}></img>
-        <h2>D/Cheese Chicken</h2>
-        <h2>Price: R55</h2>
-        <button className='add-item' onClick={Additem}>Add To Cart</button>
-        <button className='remove-item' onClick={removeitem}>Remove</button>
-        </div>
-        <div><img src={chipsburger} style={{width:"200px", height:"150px"}}></img>
-        <h2>Chips& B/Burger</h2>
-        <h2>Price: R49</h2>
-        <button className='add-item' onClick={Additem}>Add To Cart</button>
-        <button className='remove-item' onClick={removeitem}>Remove</button>
-        </div>
-        <div><img src={doublepatty} style={{width:"200px", height:"150px"}}></img>
-        <h2>D/Cheese Beef</h2>
-        <h2>Price: R25</h2>
-        <button className='add-item' onClick={Additem}>Add To Cart</button>
-        <button className='remove-item' onClick={removeitem}>Remove</button>
-        </div>
-        <div><img src={regularchicken} style={{width:"200px", height:"150px"}}></img>
-        <h2>Regular Burger</h2>
-        <h2>Price: R65</h2>
-        <button className='add-item' onClick={Additem}>Add To Cart</button>
-        <button className='remove-item' onClick={removeitem}>Remove</button>
-        </div>
-        <div><img src={regular} style={{width:"200px", height:"150px"}}></img>
-        <h2>Regular Burger</h2>
-        <h2>Price: R25</h2>
-        <button className='add-item' onClick={Additem}>Add To Cart</button>
-        <button className='remove-item' onClick={removeitem}>Remove</button>
-        </div>  
-        </div> */}
+    <div className="items">Number of items={itemCount}</div><br></br>
+    <div className='total'>Total Cost={result}</div>
+               
+       {/* <ShoppingCartIcon /> */}
         {products.map((elem)=>{
-
-return ( <div className='burgers' >
+      return ( <div className='burgers' >
       <div><img src={elem.link} style={{width:"200px", height:"150px"}}></img>
       <h2>{elem.product}</h2>
       <h2>Price: {elem.price}</h2>
-      <button className='add-item' onClick={Additem}>Add To Cart</button>
+      <button className='add-item' onClick={()=>{
+        Additem(elem)
+      }}>Add To Cart</button>
       <button className='remove-item' onClick={removeitem}>Remove</button>
       </div> <br></br>
       <div className='pizza'>
